@@ -1,4 +1,5 @@
 import { mongoClient } from "../database/mongoClient.js"
+import bcrypt from 'bcrypt'
 
 class UserController {
     static async createUser(req, res) {
@@ -6,7 +7,7 @@ class UserController {
             const createUserResponse = await mongoClient.user.create({
                 data: {
                     email: req.body.email,
-                    password: req.body.password,
+                    password: bcrypt.hashSync(req.body.password, 10),
                     name: req.body.name
                 }
             })

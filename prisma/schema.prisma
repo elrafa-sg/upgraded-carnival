@@ -18,4 +18,12 @@ model User {
   email           String              @unique
   name            String                    
   password        String            
+  vehicles        Vehicle[]
+}
+
+model Vehicle {
+  id              String              @id @default(auto()) @map("_id") @db.ObjectId
+  plate           String
+  owner           User                @relation(fields: [ownerId], references: [id])
+  ownerId         String              @db.ObjectId
 }
