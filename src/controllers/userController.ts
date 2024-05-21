@@ -1,8 +1,10 @@
-import { mongoClient } from "../database/mongoClient.js"
 import bcrypt from 'bcrypt'
+import { Request, Response } from 'express'
+
+import { mongoClient } from "../database/mongoClient"
 
 class UserController {
-    static async createUser(req, res) {
+    static async createUser(req: Request, res: Response) {
         try {
             const createUserResponse = await mongoClient.user.create({
                 data: {
@@ -14,7 +16,7 @@ class UserController {
 
             res.status(201).json(createUserResponse)
         }
-        catch (err) {
+        catch (err: any) {
             if (err?.meta?.target === 'User_email_key') {
                 res.status(403).json({ message: 'Email já cadastrado!' })
             }

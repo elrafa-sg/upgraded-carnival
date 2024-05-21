@@ -1,7 +1,7 @@
 import express from 'express'
-import { VehicleController } from '../controllers/vehicleController.js'
 
-import { authMiddleware } from '../middlewares/authMiddleware.js'
+import { authMiddleware } from '../middlewares/authMiddleware'
+import { VehicleController } from '../controllers/vehicleController'
 
 const vehicleRouter = express.Router()
 

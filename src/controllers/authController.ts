@@ -1,10 +1,12 @@
-import { mongoClient } from "../database/mongoClient.js"
-import { generateTokens } from '../helpers/auth.js'
 import bcrypt from 'bcrypt'
+import { Request, Response } from 'express'
+
+import { mongoClient } from "../database/mongoClient"
+import { generateTokens } from '../helpers/auth'
 
 class AuthController {
 
-    static async authUser(req, res) {
+    static async authUser(req: Request, res: Response) {
         try {
             const user = await mongoClient.user.findFirst({
                 where: {
@@ -31,7 +33,7 @@ class AuthController {
                 res.status(400).json({ message: 'Senha inválida!' })
             }
         }
-        catch (err) {
+        catch (err: any) {
             console.log('authUser', err)
             res.status(500).json({ message: err.message })
         }
