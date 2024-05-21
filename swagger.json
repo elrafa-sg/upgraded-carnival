@@ -118,7 +118,8 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "autoBody": false
       },
       "get": {
         "description": "",
