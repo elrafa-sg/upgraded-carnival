@@ -16,8 +16,7 @@ class AuthController {
                 return res.status(400).json({ message: 'Senha ou email inválidos!' })
             }
 
-            const storedPassword = await bcrypt.hash(user.password, 10)
-            const passwordIsValid = await bcrypt.compare(req.body.password, storedPassword)
+            const passwordIsValid = await bcrypt.compare(req.body.password, user.password)
             if (passwordIsValid) {
                 const { email, name } = user
                 const accessToken = generateTokens(user)
