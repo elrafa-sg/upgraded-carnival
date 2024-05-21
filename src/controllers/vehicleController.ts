@@ -1,7 +1,9 @@
-import { mongoClient } from "../database/mongoClient.js"
+import { Request, Response } from 'express'
+
+import { mongoClient } from "../database/mongoClient"
 
 class VehicleController {
-    static async createVehicle(req, res) {
+    static async createVehicle(req: Request, res: Response) {
         try {
             const createVehicleResponse = await mongoClient.vehicle.create({
                 data: {
@@ -12,13 +14,13 @@ class VehicleController {
 
             res.status(201).json(createVehicleResponse)
         }
-        catch (err) {
+        catch (err: any) {
             console.log('createVehicle', err)
             res.status(500).json({ message: err.message })
         }
     }
 
-    static async getAllVehicles(req, res) {
+    static async getAllVehicles(req: Request, res: Response) {
         try {
             const vehiclesList = await mongoClient.vehicle.findMany({
                 where: {
@@ -28,7 +30,7 @@ class VehicleController {
 
             res.status(201).json(vehiclesList)
         }
-        catch (err) {
+        catch (err: any) {
             console.log('getAllVehicles', err)
             res.status(500).json({ message: err.message })
         }

@@ -1,6 +1,7 @@
-import { verifyToken } from '../helpers/auth.js'
+import { Request, Response, NextFunction } from 'express'
+import { verifyToken } from '../helpers/auth'
 
-export const authMiddleware = (req, res, next) => {
+export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
     try {
         const authHeader = req.headers.authorization
         const token = authHeader && authHeader.split(' ')[1]
@@ -9,12 +10,10 @@ export const authMiddleware = (req, res, next) => {
             return res.status(401).send({ message: 'O token não foi informado' })
         }
 
-        const decoded = verifyToken(token)
-
+        const decoded: any = verifyToken(token)
         req.body.userId = decoded.id
         next()
-    } catch (err) {
-
+    } catch (err: any) {
         return res.status(403).send('O token já expirou')
     }
 }
