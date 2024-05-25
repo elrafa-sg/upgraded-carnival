@@ -15,7 +15,6 @@ class VehicleController {
             res.status(201).json(createVehicleResponse)
         }
         catch (err: any) {
-            console.log('createVehicle', err)
             res.status(500).json({ message: err.message })
         }
     }
@@ -31,7 +30,6 @@ class VehicleController {
             res.status(201).json(vehiclesList)
         }
         catch (err: any) {
-            console.log('getAllVehicles', err)
             res.status(500).json({ message: err.message })
         }
     }

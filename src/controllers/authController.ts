@@ -34,7 +34,6 @@ class AuthController {
             }
         }
         catch (err: any) {
-            console.log('authUser', err)
             res.status(500).json({ message: err.message })
         }
     }
