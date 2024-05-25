@@ -3,7 +3,8 @@ declare global {
         interface ProcessEnv {
             DATABASE_URL: string | undefined,
             ACCESS_EXPIRES: string | undefined,
-            ACCESS_SECRET: string | undefined
+            ACCESS_SECRET: string | undefined,
+            API_PORT: number
         }
     }
 }
