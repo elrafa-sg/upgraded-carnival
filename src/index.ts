@@ -7,7 +7,7 @@ import router from './routes/index'
 
 import swaggerDocs from '../swagger.json'
 
-const API_PORT = process.env['API_PORT'] ?? 3001
+const API_PORT = process.env.API_PORT ?? 3001
 
 const app = express()
 app.use(cors())
