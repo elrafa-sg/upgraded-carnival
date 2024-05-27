@@ -19,7 +19,7 @@ Implementação de um conceito de plataforma de rastreamento de veículos.
    git clone git@github.com:elrafa-sg/fuzzy-octo-goggles.git
    ```
 
-2. Dentro da pasta do projeto, instale as dependências\*:
+2. Dentro da pasta do projeto, instale as dependências:
    ```
    npm install
    ```
@@ -28,7 +28,7 @@ Implementação de um conceito de plataforma de rastreamento de veículos.
 
 4. Instale o banco de dados:
    ```
-   npx prisma migrate dev
+   npx prisma db push
    ```
 
 5. Execute o projeto:
