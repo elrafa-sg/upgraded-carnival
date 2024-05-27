@@ -27,7 +27,7 @@ class VehicleController {
                 }
             })
 
-            res.status(201).json(vehiclesList)
+            res.status(200).json(vehiclesList)
         }
         catch (err: any) {
             res.status(500).json({ message: err.message })

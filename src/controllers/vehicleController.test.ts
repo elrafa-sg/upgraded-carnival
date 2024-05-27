@@ -96,7 +96,7 @@ describe('VehicleController', () => {
       expect(mongoClient.vehicle.findMany).toHaveBeenCalledWith({
         where: { ownerId: req.body.idUsuario },
       });
-      expect(res.status).toHaveBeenCalledWith(201);
+      expect(res.status).toHaveBeenCalledWith(200);
       expect(jsonMock).toHaveBeenCalledWith(vehiclesList);
     });
 

@@ -9,7 +9,7 @@ describe('createVehicleMiddleware', () => {
     beforeEach(() => {
         req = {
             body: {
-                plate: 'ABC1234', // Um exemplo de placa inválida com menos de 7 caracteres
+                plate: 'ABC1234', 
             },
         };
         res = {
@@ -24,13 +24,13 @@ describe('createVehicleMiddleware', () => {
     });
 
     it('should call next() if request data is valid', () => {
-        req.body.plate = 'ABC1234'; // Uma placa válida com 7 caracteres
+        req.body.plate = 'ABC1234'; 
         createVehicleMiddleware(req as Request, res as Response, next);
         expect(next).toHaveBeenCalled();
     });
 
     it('should return 422 with validation errors if request data is invalid', () => {
-        req.body.plate = 'ABC'; // Uma placa inválida com menos de 7 caracteres
+        req.body.plate = 'ABC'; 
         createVehicleMiddleware(req as Request, res as Response, next);
         expect(res.status).toHaveBeenCalledWith(422);
         expect(res.json).toHaveBeenCalledWith({

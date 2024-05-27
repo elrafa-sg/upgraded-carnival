@@ -30,7 +30,7 @@ describe('signInMiddleware', () => {
     });
 
     it('should return 422 with validation errors if request data is invalid', () => {
-        req.body = { email: 'invalid-email', password: '123' }; // Dados inválidos
+        req.body = { email: 'invalid-email', password: '123' }; 
         signInMiddleware(req as Request, res as Response, next);
         expect(res.status).toHaveBeenCalledWith(422);
         expect(res.json).toHaveBeenCalledWith({
