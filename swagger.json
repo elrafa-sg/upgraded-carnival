@@ -5,7 +5,7 @@
     "description": "Projeto de cadastro de usuários e veículos para sistema de rastreamento",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "localhost:3001",
   "basePath": "/",
   "schemes": [
     "http"
@@ -37,6 +37,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"
@@ -74,6 +77,9 @@
           "403": {
             "description": "Forbidden"
           },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -95,13 +101,14 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
-                  "example": "any"
-                },
                 "plate": {
-                  "example": "any"
+                  "type": "string",
+                  "example": ""
                 }
-              }
+              },
+              "required": [
+                "plate"
+              ]
             }
           }
         ],
@@ -114,6 +121,9 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"
