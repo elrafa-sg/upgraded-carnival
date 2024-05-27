@@ -16,7 +16,7 @@ Implementação de um conceito de plataforma de rastreamento de veículos.
 
 1. Clone o repositório:
    ```
-   git clone git@github.com:elrafa-sg/fuzzy-octo-goggles.git
+   git clone git@github.com:elrafa-sg/upgraded-carnival.git
    ```
 
 2. Dentro da pasta do projeto, instale as dependências:
@@ -38,12 +38,12 @@ Implementação de um conceito de plataforma de rastreamento de veículos.
 
 6. Execute os testes do projeto (opcional):
    ```
-   yarn test
+   npm run test
    ```
 
 7. Verifique a cobertura de codigo dos testes (opcional):
    ```
-   yarn test:coverage
+   npm run test:coverage
    ```
 
 8. Gere uma versão para produção:
